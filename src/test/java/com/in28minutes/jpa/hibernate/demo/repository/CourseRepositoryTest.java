@@ -55,6 +55,14 @@ public class CourseRepositoryTest {
 
 	}
 	
+	@Test
+	@DirtiesContext //resets context to the way it was b4
+	public void playWithEntityManagerTest() {
+		
+		repository.playWithEntityManager();
+
+	}
+	
 	
 
 }

@@ -31,7 +31,37 @@ public class CourseRepository {
 			em.merge(course);
 		}
 		
-		return course;
+		return course; 
 	}
+	
+	public void playWithEntityManager() {
+		Course course = new Course("Web Services in 100 Steps");
+		em.persist(course);
+		
+		Course course2 = findById(10001L);
+		course2.setName("JPA in 50 Steps - Updated");
+		
+	}
+	
+//	public void playWithEntityManager() { //Transaction -- em keeps track of all changes
+//		Course course = new Course("Web Services in 100 Steps");
+//		em.persist(course); // create a new entity
+//		Course course2 = new Course("Angular JS in 100 Steps");
+//		em.persist(course2); // create a new entity
+//		em.flush(); // changes up to that point are sent to the database
+////		em.clear(); // detach for all things tracked by the EM
+////		em.detach(course2); //changes to course2 are not tracked by the entity manager anymore
+//		
+//		
+//		
+//		
+//		
+//		course.setName("Web Services in 100 Steps - Updated");
+////		em.flush(); // changes up to that point are sent to the database
+//		course2.setName("Angular JS in 100 Steps - Updated");
+//		em.refresh(course);
+//		em.flush(); // changes up to that point are sent to the database
+//		
+//	}
 	
 }
